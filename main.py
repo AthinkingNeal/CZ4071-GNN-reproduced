@@ -137,19 +137,32 @@ def main():
     scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.5)
 
 
+
+    if not args.filename == "":
+        f = open(args.filename, 'w')
+
+
     for epoch in range(1, args.epochs + 1):
         scheduler.step()
 
         avg_loss = train(args, model, device, train_graphs, optimizer, epoch)
         acc_train, acc_test = test(args, model, device, train_graphs, test_graphs, epoch)
 
-        if not args.filename == "":
-            with open(args.filename, 'w') as f:
-                f.write("%f %f %f" % (avg_loss, acc_train, acc_test))
-                f.write("\n")
+        # if not args.filename == "":
+        #     with open(args.filename, 'w') as f:
+        #         f.write("%f %f %f" % (avg_loss, acc_train, acc_test))
+        #         f.write("\n")
+
+        f.write("%f %f %f" % (avg_loss, acc_train, acc_test))
+        f.write("\n")
+
         print("")
 
         print(model.eps)
+
+    if not args.filename == "":
+        f.close()
+
     
 
 if __name__ == '__main__':

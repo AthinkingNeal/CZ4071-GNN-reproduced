@@ -1,27 +1,33 @@
 # How Powerful are Graph Neural Networks?
 
-This repository is the official PyTorch implementation of the experiments in the following paper: 
+This repository is the replication of PyTorch implementation of the experiments in the following paper: 
 
 Keyulu Xu*, Weihua Hu*, Jure Leskovec, Stefanie Jegelka. How Powerful are Graph Neural Networks? ICLR 2019. 
 
 [arXiv](https://arxiv.org/abs/1810.00826) [OpenReview](https://openreview.net/forum?id=ryGs6iA5Km) 
 
-If you make use of the code/experiment or GIN algorithm in your work, please cite our paper (Bibtex below).
-```
-@inproceedings{
-xu2018how,
-title={How Powerful are Graph Neural Networks?},
-author={Keyulu Xu and Weihua Hu and Jure Leskovec and Stefanie Jegelka},
-booktitle={International Conference on Learning Representations},
-year={2019},
-url={https://openreview.net/forum?id=ryGs6iA5Km},
-}
-```
+
 
 ## Installation
 Install PyTorch following the instuctions on the [official website] (https://pytorch.org/). The code has been tested over PyTorch 0.4.1 and 1.0.0 versions.
 
+The experiment is tested under Linux Environment
+
+Create a conda virtual environment first
+
+```
+conda create --name GNN python=3.7
+```
+
+install the Pytorch 1.0.0 version
+
+```
+conda install pytorch==1.0.0 torchvision==0.2.1 cuda100 -c pytorch
+```
+
+
 Then install the other dependencies.
+
 ```
 pip install -r requirements.txt
 ```
@@ -44,6 +50,14 @@ To learn hyper-parameters to be specified, please type
 ```
 python main.py --help
 ```
+
+### Generate Experiment Plot
+
+first run experiments and store the results in "file A".
+
+Use graph.py to generate the plot.
+
+See graph.py for more detailed explaination.
 
 
 
