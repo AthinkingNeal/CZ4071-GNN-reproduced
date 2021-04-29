@@ -13,8 +13,9 @@ def get_accuracy_list (filename: str) -> List:
     for line in f:
         splitted_string = line.split()
 
-        # the accuracy is at the third place of each line
-        test_accuracy = float(splitted_string[1])
+        # the trainning accuracy is at the third place of each line
+        # to get the different accuracy (trainning at [1]/testing at [2]), just change the positional index below
+        test_accuracy = float(splitted_string[2])
         test_accuracy_list.append(test_accuracy)
     
     f.close()
@@ -30,7 +31,7 @@ fig, ax = plt.subplots()
 ax.plot(x, GIN_MLP0_accuracy_list, label ="SUM--MLP (GIN0)")
 ax.plot(x, GIN_MLPeps_accuracy_list, label = "SUM--MLP(GINeps)")
 ax.set_xlabel('epochs')
-ax.set_ylabel("trainning accuracy")
+ax.set_ylabel("testting accuracy")
 ax.set_title("IMDBBINARY")
 ax.legend()
 plt.show()
