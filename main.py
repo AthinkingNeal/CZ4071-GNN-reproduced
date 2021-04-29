@@ -152,9 +152,10 @@ def main():
         #     with open(args.filename, 'w') as f:
         #         f.write("%f %f %f" % (avg_loss, acc_train, acc_test))
         #         f.write("\n")
-
-        f.write("%f %f %f" % (avg_loss, acc_train, acc_test))
-        f.write("\n")
+        
+        if not args.filename == "":
+            f.write("%f %f %f" % (avg_loss, acc_train, acc_test))
+            f.write("\n")
 
         print("")
 
